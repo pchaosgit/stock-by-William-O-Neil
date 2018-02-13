@@ -10,7 +10,7 @@
 """
 
 import tushare as ts
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 
 
 # 日期格式YYYYMMDD转为YYYY-MM-DD
@@ -36,7 +36,21 @@ def str2date(strdate='20180101'):
   return datetime(year=int(strdate[0:4]), month=int(strdate[4:6]), day=int(strdate[6:8]))
 
 
+def int2date(intdate: int):
+  """
+  If you have date as an integer, use this method to obtain a datetime.date object.
 
+  Parameters
+  ----------
+  intdate : int
+    Date as a regular integer value (example: 20160618)
 
-
-
+  Returns
+  -------
+  dateandtime.date
+    A date object which corresponds to the given value `intdate`.
+  """
+  y = int(intdate / 10000)
+  m = int((intdate % 10000) / 100)
+  d = int(intdate % 100)
+  return date(y, m, d)
