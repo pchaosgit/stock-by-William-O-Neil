@@ -16,6 +16,9 @@ class TestOneilsourceKDZD(TestCase):
   def setUp(self):
     pass
 
+  def tearDown(self):
+    pass
+
   def test_listingDate(self):
     o = oneil()
     df=o.listingDate()
