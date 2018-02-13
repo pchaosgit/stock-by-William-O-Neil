@@ -11,6 +11,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 import pandas as pd
 
+
 class Oneil():
   """
   基础工具类
@@ -26,17 +27,17 @@ class OneilKDZD(Oneil):
 
   def __init__(self):
     # todo 本地缓存
-    self._sbdf = None
+    self._sbdf = pd.DataFrame()
     #
-    self._sbdFilename= "./stock_basics.pkl.gz"
+    self._sbdFilename = "./stock_basics.pkl.gz"
     self._sbdFile = Path(self._sbdFilename)
 
   @property
   def sbdf(self):
-    if self._sbdf == None:
+    if len(self._sbdf) == 0:
       if self._sbdFile.exists():
         # 读取本地
-        self._sbdf= pd.read_pickle(self._sbdFilename)
+        self._sbdf = pd.read_pickle(self._sbdFilename)
       else:
         # 通过tushare在线获取股票基本资料
         self._sbdf = ts.get_stock_basics()
@@ -49,7 +50,6 @@ class OneilKDZD(Oneil):
   @sbdf.setter
   def sbdf(self, value):
     self._sbdf = value
-
 
   @sbdf.deleter
   def sbdf(self):
@@ -64,4 +64,4 @@ class OneilKDZD(Oneil):
     # return self._sbdf.mask(lambda x: x['timeToMarket'] < end_date.year * 10000 + end_date.month * 100 + end_date.day & x['timeToMarket'] > 0)
     return self.sbdf[
       (self._sbdf['timeToMarket'] < end_date.year * 10000 + end_date.month * 100 + end_date.day) & (
-      self._sbdf['timeToMarket'] > 0)]
+        self._sbdf['timeToMarket'] > 0)]

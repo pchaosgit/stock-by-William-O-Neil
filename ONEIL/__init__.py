@@ -6,3 +6,5 @@
 @license : Copyright(C), yglib
 @Contact : p19992003#gmail.com
 """
+
+__version__ = "0.1"
