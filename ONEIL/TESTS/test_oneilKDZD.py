@@ -22,4 +22,5 @@ class TestOneilsourceKDZD(TestCase):
   def test_listingDate(self):
     o = oneil()
     df=o.listingDate()
-    self.assertTrue(len(df) > 0)
+    # 上市超过一年的股票数量大于2000个
+    self.assertTrue(len(df) > 2000)
