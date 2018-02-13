@@ -37,7 +37,7 @@ def str2date(strdate='20180101'):
 
 
 def int2date(intdate: int):
-  """
+  """将整数格式的日期转换成date
   If you have date as an integer, use this method to obtain a datetime.date object.
 
   Parameters

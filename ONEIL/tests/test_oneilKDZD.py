@@ -13,6 +13,9 @@ from ONEIL.Oneil.Oneil import OneilKDZD as oneil
 
 
 class TestOneilsourceKDZD(TestCase):
+  def setUp(self):
+    pass
+
   def test_listingDate(self):
     o = oneil()
     df=o.listingDate()
