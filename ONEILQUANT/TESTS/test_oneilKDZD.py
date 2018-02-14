@@ -7,23 +7,28 @@
 @Contact : p19992003#gmail.com
 """
 from unittest import TestCase
-from . import env
+from ONEILQUANT.TESTS import env
 # append parent directory to import path
-from ONEIL.Oneil.Oneil import OneilKDZD as oneil
+from ONEILQUANT.OneilQUANT.Oneil import OneilKDZD as oneil
 
 
-class TestOneilsourceKDZD(TestCase):
+class TestOneilKDZD(TestCase):
   def setUp(self):
-    pass
+    self.oq = oneil()
 
   def tearDown(self):
-    pass
+    self.oq = None
 
   def test_listingDate(self):
-    o = oneil()
     # 默认上市一年以上
-    df = o.listingDate()
+    n1=365
+    df = self.oqg.listingDate(n1)
     # 上市超过一年的股票数量大于2000个
-    self.assertTrue(len(df) > 2000)
-    df1 = o.listingDate(200)
+    self.assertTrue(len(df) > 2000, "上市一年以上股票数量，2018年最少大于2000只")
+    # 不同上市时间的股票数比较
+    n2 = 200
+    df1 = self.oq.listingDate(n2)
     self.assertTrue(len(df) < len(df1), "上市一年的股票数量<200天的股票数量")
+
+# if __name__=='__main__':
+#   TestCase.run()
