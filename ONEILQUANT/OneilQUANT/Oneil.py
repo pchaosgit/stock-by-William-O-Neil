@@ -28,13 +28,19 @@ class OneilKDZD(Oneil):
   def __init__(self):
     # todo 本地缓存
     self._sbdf = pd.DataFrame()
+    self._oneildf = pd.DataFrame()
     #
     self._sbdFilename = "./stock_basics.pkl.gz"
     self._sbdFile = Path(self._sbdFilename)
 
   @property
   def sbdf(self):
+    """
+    股票基本资料
+    :return: 股票基本资料dataframe
+    """
     if len(self._sbdf) == 0:
+      # todo 判断本地文件时间，再决定是否更新本地文件
       if self._sbdFile.exists():
         # 读取本地
         self._sbdf = pd.read_pickle(self._sbdFilename)
@@ -55,6 +61,18 @@ class OneilKDZD(Oneil):
   def sbdf(self):
     del self._sbdf
 
+  @property
+  def oneildf(self):
+    """
+    欧奈尔
+    :return:
+    """
+    return self._oneildf
+
+  @oneildf.setter
+  def oneildf(self, value):
+    self._oneildf = value
+
   #
   def listingDate(self, n=365):
     """
@@ -64,7 +82,7 @@ class OneilKDZD(Oneil):
     # return self._sbdf.mask(lambda x: x['timeToMarket'] < end_date.year * 10000 + end_date.month * 100 + end_date.day & x['timeToMarket'] > 0)
     return self.sbdf[
       (self._sbdf['timeToMarket'] < end_date.year * 10000 + end_date.month * 100 + end_date.day) & (
-        self._sbdf['timeToMarket'] > 0)]
+          self._sbdf['timeToMarket'] > 0)]
 
   # 口袋支点
   def KDZD(self):
@@ -73,3 +91,4 @@ class OneilKDZD(Oneil):
   # 一年新高
   def YNXG(self):
     pass
+
