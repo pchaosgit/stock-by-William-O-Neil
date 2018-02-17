@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 @Time    : 18-2-7
-@File    : env.py.py
+@File    : env.py
 @author  : pchaos
 @license : Copyright(C), yglib
 @Contact : p19992003#gmail.com

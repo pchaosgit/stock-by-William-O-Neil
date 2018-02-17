@@ -65,3 +65,11 @@ class OneilKDZD(Oneil):
     return self.sbdf[
       (self._sbdf['timeToMarket'] < end_date.year * 10000 + end_date.month * 100 + end_date.day) & (
         self._sbdf['timeToMarket'] > 0)]
+
+  # 口袋支点
+  def KDZD(self):
+    pass
+
+  # 一年新高
+  def YNXG(self):
+    pass
