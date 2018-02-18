@@ -16,7 +16,7 @@ from datetime import datetime, date
 class Test_BaseUtility(TestCase):
   def test_formatDate(self):
     # todo d为整型
-    d = '20180102'
+    d = 20180102
     fd = ut.formatDate(d)
     self.assertTrue(len(fd) == 8, "")
 

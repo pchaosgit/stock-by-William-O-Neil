@@ -21,9 +21,10 @@ def formatDate(Date, format_type='YYYYMMDD'):
   :param format_type:
   :return: 字符串格式日期；例如：”20180102“
   """
-  format_type = format_type.replace('YYYY', Date[0:4])
-  format_type = format_type.replace('MM', Date[4:6])
-  format_type = format_type.replace('DD', Date[-2:])
+  d=str(Date)
+  format_type = format_type.replace('YYYY', d[0:4])
+  format_type = format_type.replace('MM', d[4:6])
+  format_type = format_type.replace('DD', d[-2:])
   return format_type
 
 
