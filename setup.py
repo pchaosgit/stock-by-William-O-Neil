@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='stock-by-William-O-Neil',
+    name='oneil',
     version='0.1',
     packages=['ONEILQUANT', 'ONEILQUANT.BASE', 'ONEILQUANT.OneilQUANT', 'ONEILQUANT.OneilQUANT.tests',
               'ONEILQUANT.OneilQUANT.tests.BASE'],
