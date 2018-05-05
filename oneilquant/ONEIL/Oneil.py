@@ -37,7 +37,24 @@ class OneilKDZD(Oneil):
     def sbdf(self):
         """
         股票基本资料
-        :return: 股票基本资料dataframe
+        :return: 股票基本资料
+            DataFrame
+               code,代码
+               name,名称
+               industry,细分行业
+               area,地区
+               pe,市盈率
+               outstanding,流通股本
+               totals,总股本(万)
+               totalAssets,总资产(万)
+               liquidAssets,流动资产
+               fixedAssets,固定资产
+               reserved,公积金
+               reservedPerShare,每股公积金
+               eps,每股收益
+               bvps,每股净资
+               pb,市净率
+               timeToMarket,上市日期
         """
         if len(self._sbdf) == 0:
             # todo 判断本地文件时间，再决定是否更新本地文件
@@ -77,6 +94,24 @@ class OneilKDZD(Oneil):
     def listingDate(self, n=365):
         """
         返回上市超过n天的股票列表;默认为一年
+                :return: 股票基本资料
+            DataFrame
+               code,代码
+               name,名称
+               industry,细分行业
+               area,地区
+               pe,市盈率
+               outstanding,流通股本
+               totals,总股本(万)
+               totalAssets,总资产(万)
+               liquidAssets,流动资产
+               fixedAssets,固定资产
+               reserved,公积金
+               reservedPerShare,每股公积金
+               eps,每股收益
+               bvps,每股净资
+               pb,市净率
+               timeToMarket,上市日期
         """
         end_date = datetime.now() + timedelta(days=-n)
         # return self._sbdf.mask(lambda x: x['timeToMarket'] < end_date.year * 10000 + end_date.month * 100 + end_date.day & x['timeToMarket'] > 0)

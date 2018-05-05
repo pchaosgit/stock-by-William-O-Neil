@@ -8,7 +8,7 @@
 """
 from unittest import TestCase
 # append parent directory to import path
-from ONEILQUANT.OneilQUANT.Oneil import OneilKDZD as oneil
+from oneilquant.ONEIL.Oneil import OneilKDZD as oneil
 
 
 class TestOneilKDZD(TestCase):

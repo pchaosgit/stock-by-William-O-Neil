@@ -9,7 +9,7 @@
 @Contact : p19992003#gmail.com
 """
 
-from ONEILQUANT.BASE.utility import *
+from oneilquant.base.utility import *
 
 class oneilRPS():
   """

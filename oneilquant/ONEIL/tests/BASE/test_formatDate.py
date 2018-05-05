@@ -10,7 +10,7 @@
 """
 
 from unittest import TestCase
-from ONEILQUANT.BASE import utility as ut
+from oneilquant.base import utility as ut
 from datetime import datetime, date
 
 class Test_BaseUtility(TestCase):
